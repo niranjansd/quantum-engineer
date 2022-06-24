@@ -1,4 +1,11 @@
-## Welcome to GitHub Pages
+## Welcome to my Quantum Engineer page
+
+I created this page to explore the budding field of qunatum software engineering, i.e. accessing quantum computing and qunatum information through code. Quick background check, I have completed a PhD in Quantum Optics and Quantum Information and now work in machine learning research. This page is my attempt to understand the current state of quantum computing industry and gauge if it is possible for non-physics-phds to enter the field. I will try to keep this page as close to the practical engineering as possible and not go too deep into the physics and theory. However, some of the physics might be too cool not mention, so I will be exploring ways to make it more accessible to the uninitiated. Enjoy.
+
+Step 1.
+
+
+
 
 You can use the [editor on GitHub](https://github.com/niranjansd/quantum-for-engineers/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
