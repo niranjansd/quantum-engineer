@@ -33,6 +33,13 @@ Yup. The Hilbert space which is where all our quantum engineering will happen is
 ### I dont believe you? What is this additional constraints and properties?
 Lets explore that in all its detail.
 
+## Quantum States
+Let understand the basic terminology of quantum states using analogies with numpy arrays.
+
+Consider a numpy array of rank 1 is an array of numbers. e.g. a = [0, 3, 5]
+But they dont have to represent just numbers, they could represent objects. For example, we can define a `basis` = ['Apple', 'Banana', 'Grapes']. Then we could define a new data structure called a `fruit state` which is a numpy array with the additional constr.
+
+A quantum state is just a vector of state
 
 
 
