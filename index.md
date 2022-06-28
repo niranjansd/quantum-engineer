@@ -34,10 +34,41 @@ Yup. The Hilbert space which is where all our quantum engineering will happen is
 Lets explore that in all its detail.
 
 ## Quantum States
+Before we get to quantum states, lets take 1 quick detour to understand an illustrative example. If you have dabbled in ML, you might already know about the probability distribution vector which is often the final output of an ML model. Consider a dummy example, you build an ML model that identifies which fruit is present in an image. Each image contains 1 of 3 fruits, apple, orange or banana. Let us study what the output of this model looks like -
+- Output of the model is an array.
+- Length of the array is equal to the number of classes, in this case 3.
+- The values of the array correspond to the predicted probability of the class in an arbitrary but fixed order. Lets say the order we fix is ['apple', 'orange', 'banana'] and the output of the model is [0.2, 0.3, 0.5]. This means that the model predicts 0.2 is the probability of the image being of an apple, 0.3 is the probability of an orange, 0.5 is the probability of a banana. This definition gives us two more constraints.
+  - The sum of the output array is 1, since it is the sum of all the outcome probabilities.
+  - All the element of the array much be >= 0.
+
+Two key concepts to note here
+ 1. the definition of a `basis`. The output [0.2, 0.3, 0.5] is not just an array of numbers. Each number represents an object, in this case that object is a fruit. The fruit probability state is [0.2, 0.3, 0.5] and its 'basis' is ['apple', 'orange', 'banana']. Reordering the basis vector implies also reordering our state vectors, but it does not change the underlying information.
+ 2. The output array [0.2, 0.3, 0.5] captures everything we know about a specific image in a specific basis. We could measure the image in a completely new basis. For example, we could modify the basis to whether there is an apple in the image or not. In this case the new basis would be ['present', 'absent']. Then the new probability vector in this new basis would be [0.2, 0.8].
+
+Now we are ready to define a quantum state data structure. We shall start with the simplest quantum state, a quantum bit or qubit. A qubit is a quantum object whose basis is of length 2. It is analogous to a classical bit which has only 2 possible states 0 or 1.
+- Thus both the classical bit and qubit have a basis of length 2, which we can denote for convenience as ['0', '1'].
+- If the classical bit is in state '0', its probability vector is [1., 0.]. If it is in state '1', its probability vector is [0., 1.]. The classical bit cannot be in any other state.
+- The quantum bit can have any probability density vector, i.e it can be [0.5, 0.5], or [0.25, 0.75].
+- What is more is that the probability density of [0.5, 0.5] actually describes many states. 
+
+
+A qubit is a quantum bit, i.e like a classical bit, it has 
+A Quantum state
+- is an array.
+- has a basis.
+- 
+
+
+
+
+
 Let understand the basic terminology of quantum states using analogies with numpy arrays.
 
 Consider a numpy array of rank 1 is an array of numbers. e.g. a = [0, 3, 5]
-But they dont have to represent just numbers, they could represent objects. For example, we can define a `basis` = ['Apple', 'Banana', 'Grapes']. Then we could define a new data structure called a `fruit state` which is a numpy array with the additional constr.
+But they dont have to represent just numbers, they could represent objects. For example, we can define a `basis` = ['Apple', 'Banana', 'Grapes']. Then we could define a new data structure called a `fruit state` with some constraints and properties.
+### Constraints
+- Length of the fruit state array is equal to the length of the basis. (In this example, length is 3.)
+- The sum of the 
 
 A quantum state is just a vector of state
 
