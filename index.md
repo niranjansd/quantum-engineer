@@ -45,32 +45,27 @@ Two key concepts to note here
  1. the definition of a `basis`. The output [0.2, 0.3, 0.5] is not just an array of numbers. Each number represents an object, in this case that object is a fruit. The fruit probability state is [0.2, 0.3, 0.5] and its 'basis' is ['apple', 'orange', 'banana']. Reordering the basis vector implies also reordering our state vectors, but it does not change the underlying information.
  2. The output array [0.2, 0.3, 0.5] captures everything we know about a specific image in a specific basis. We could measure the image in a completely new basis. For example, we could modify the basis to whether there is an apple in the image or not. In this case the new basis would be ['present', 'absent']. Then the new probability vector in this new basis would be [0.2, 0.8].
 
-Now we are ready to define a quantum state data structure. We shall start with the simplest quantum state, a quantum bit or qubit. A qubit is a quantum object whose basis is of length 2. It is analogous to a classical bit which has only 2 possible states 0 or 1.
-- Thus both the classical bit and qubit have a basis of length 2, which we can denote for convenience as ['0', '1'].
-- If the classical bit is in state '0', its probability vector is [1., 0.]. If it is in state '1', its probability vector is [0., 1.]. The classical bit cannot be in any other state.
-- The quantum bit can have any probability density vector, i.e it can be [0.5, 0.5], or [0.25, 0.75].
-- What is more is that the probability density of [0.5, 0.5] actually describes many states. 
+Now we are ready to define a quantum state. We shall start with the simplest quantum state, a quantum bit or qubit. A qubit is a quantum object analogous to a classical bit which has 2 possible states 0 or 1. Thus both the classical bit and qubit have a basis of length 2, which we can denote for convenience as ['0', '1']. If the classical bit is in state '0', its probability density vector is [1., 0.]. If it is in state '1', its probability density vector is [0., 1.]. The classical bit cannot be in any other state. There are 3 properties that make Qubits very different from classical bits -
+1. The quantum bit can have any probability density vector, i.e it can be [0.5, 0.5], or [0.25, 0.75]. This is what is known as `superposition`, a qubit can be in both 0 and 1 at the time. (The total probability still adds up to 1 so it is not violating math, just your intuition).
+2. Quantum objects have 1 additional degree of freedom because they can interfere with each other like waves do. So we can define a probability amplitude vector for each state such that probability density = |probability amplitude|^2 i.e probability amplitude = probability density e^{i\theta}, where theta is the new degree of freedom. Let us quickly put it down into code.
+
+basis = ['0', '1']
+bit0 = [1, 0]
+bit1 = [0, 1]
+qubita_density_vector = [0.5, 0.5]
+qubitb_density_vector = [0.25, 0.75]
+qubita_wave_vector = [np.sqrt(0.5)e^{i\theta} np.sqrt(0.5)e^{i\phi}]
+qubita_density_vector = |qubita_wave_vector|^2
 
 
-A qubit is a quantum bit, i.e like a classical bit, it has 
-A Quantum state
-- is an array.
-- has a basis.
-- 
-
-
-
-
-
-Let understand the basic terminology of quantum states using analogies with numpy arrays.
-
-Consider a numpy array of rank 1 is an array of numbers. e.g. a = [0, 3, 5]
-But they dont have to represent just numbers, they could represent objects. For example, we can define a `basis` = ['Apple', 'Banana', 'Grapes']. Then we could define a new data structure called a `fruit state` with some constraints and properties.
+So let us summarize all that to define a qubit data structure. 
+### Construction
+A qubit data structure is an array of length 2, which we shall call wave vector.
 ### Constraints
-- Length of the fruit state array is equal to the length of the basis. (In this example, length is 3.)
-- The sum of the 
+- The array elements are complex numbers of the form re^{i\theta}.
+- |wave vector|**2 = probability density vector, so it must obey all the constraints of the probability density data structure.
 
-A quantum state is just a vector of state
+That is all there is to it.
 
 
 
